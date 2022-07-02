@@ -1,4 +1,8 @@
 const Shop = () => {
-  return <h1>Shop</h1>;
+  return (
+    <div>
+      <h1>shop</h1>
+    </div>
+  );
 };
 export default Shop;

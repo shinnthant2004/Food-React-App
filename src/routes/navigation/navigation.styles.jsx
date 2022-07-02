@@ -6,6 +6,9 @@ export const NavigationContainer = styled.div`
   justify-content: space-between;
   padding: 5px 80px;
   background-color: #fb923c;
+  & ~ div {
+    padding: 50px;
+  }
 `;
 export const LogoContainer = styled(Link)`
   width: 165px;

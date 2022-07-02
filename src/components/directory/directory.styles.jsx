@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const DirectoryContainer = styled.div`
-  padding: 50px;
   display: flex;
   margin: auto;
   align-items: center;
