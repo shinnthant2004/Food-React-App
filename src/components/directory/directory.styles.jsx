@@ -18,6 +18,7 @@ export const TopRatedProducts = styled.div`
   &:hover {
     box-shadow: 1px 2px 3px 1px rgb(60 64 67 / 30%),
       0 1px 3px 1px rgb(60 64 67 / 15%);
+    background-size: 100%;
   }
   span {
     width: 195px;
@@ -60,4 +61,5 @@ export const Title = styled.p`
   margin-bottom: 0;
   font-size: 30px;
   color: rgba(0, 0, 0, 0.8705882352941177);
+  margin-top: 20px;
 `;

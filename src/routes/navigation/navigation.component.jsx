@@ -12,6 +12,7 @@ const Navigation = () => {
       <NavigationContainer>
         <LogoContainer to="/">
           <Logo />
+          <span>Foodie Bochi</span>
         </LogoContainer>
         <LinkContainer>
           <Link to="/shop">Shop</Link>
