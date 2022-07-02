@@ -19,7 +19,7 @@ const SignUp = () => {
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-
+    console.log("signup submit");
     await SignUpWithEmailAndPassword(email, password);
     resetFormField();
   };
