@@ -1,4 +1,5 @@
+import Directory from "../../components/directory/directory.component";
 const Home = () => {
-  return <h2>Home</h2>;
+  return <Directory />;
 };
 export default Home;

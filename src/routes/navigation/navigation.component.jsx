@@ -1,13 +1,26 @@
 import { Fragment } from "react";
-import { Outlet } from "react-router-dom";
-
+import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { Link, Outlet } from "react-router-dom";
+import {
+  NavigationContainer,
+  LinkContainer,
+  LogoContainer,
+} from "./navigation.styles";
 const Navigation = () => {
   return (
     <Fragment>
-      <h2>navigation</h2>
-      <div>
-        <Outlet />
-      </div>
+      <NavigationContainer>
+        <LogoContainer to="/">
+          <Logo />
+        </LogoContainer>
+        <LinkContainer>
+          <Link to="/shop">Shop</Link>
+          <Link to="/auth">Sign In</Link>
+          <Link to="/user">User</Link>
+          <Link to="/carts">Carts</Link>
+        </LinkContainer>
+      </NavigationContainer>
+      <Outlet />
     </Fragment>
   );
 };
