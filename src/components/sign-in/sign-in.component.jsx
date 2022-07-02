@@ -9,9 +9,15 @@ const form = {
 const SignIn = () => {
   const [formField, setFormField] = useState(form);
   const { email, password } = formField;
+
+  const resetFormField = () => {
+    setFormField(form);
+  };
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const { user } = await signInUserWithEmailAndPassword(email, password);
+    resetFormField();
     console.log(user);
   };
   const onChangeHandler = (e) => {

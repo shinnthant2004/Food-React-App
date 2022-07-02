@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyADvYjsBrb_0eZjd0eUQarBqfKp9Rzysn4",
@@ -26,6 +26,22 @@ const GoogleProvider = new GoogleAuthProvider();
 GoogleProvider.setCustomParameters({
   prompt: "select_account",
 });
+
+export const createUserDocument = async (user, additional = {}) => {
+  if (!user) return;
+  const userDocRef = doc(db, "users", user.uid);
+  const userSnapShot = await getDoc(userDocRef);
+  if (!userSnapShot.exists()) {
+    const { displayName, email } = user;
+    const createdAt = new Date();
+    await setDoc(userDocRef, {
+      displayName,
+      email,
+      createdAt,
+      ...additional,
+    });
+  }
+};
 
 export const SignUpWithGoogle = async () =>
   await signInWithPopup(auth, GoogleProvider);

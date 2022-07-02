@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   SignUpWithGoogle,
   SignUpWithEmailAndPassword,
+  createUserDocument,
 } from "../../utils/firebase/firebase.utils";
 
 const form = {
@@ -17,10 +18,11 @@ const SignUp = () => {
   const resetFormField = () => {
     setFormField(form);
   };
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log("signup submit");
-    await SignUpWithEmailAndPassword(email, password);
+    const { user } = await SignUpWithEmailAndPassword(email, password);
+    await createUserDocument(user, { displayName });
     resetFormField();
   };
 
