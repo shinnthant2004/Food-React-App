@@ -7,13 +7,15 @@ import {
 
 const form = {
   displayName: "",
+  profile: "",
   email: "",
   password: "",
+  confirmPassword: "",
 };
 
 const SignUp = () => {
   const [formField, setFormField] = useState(form);
-  const { displayName, email, password } = formField;
+  const { displayName, profile, email, password, confirmPassword } = formField;
 
   const resetFormField = () => {
     setFormField(form);
@@ -33,6 +35,7 @@ const SignUp = () => {
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
+    console.log(e);
     setFormField({ ...formField, [name]: value });
   };
 
@@ -52,10 +55,17 @@ const SignUp = () => {
           value={email}
           onChange={onChangeHandler}
         />
+        <input type="file" name="profile" onChange={onChangeHandler} />
         <input
           type="password"
           name="password"
           value={password}
+          onChange={onChangeHandler}
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          value={confirmPassword}
           onChange={onChangeHandler}
         />
         <button type="submit">Submit</button>
