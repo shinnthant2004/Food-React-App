@@ -8,9 +8,11 @@ import {
   NavigationContainer,
   LinkContainer,
   LogoContainer,
+  Profile,
+  DefaultProfile,
 } from "./navigation.styles";
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUserName, currentUserProfile } = useContext(UserContext);
   const signOutHandler = async () => {
     await signOutUser();
   };
@@ -23,18 +25,25 @@ const Navigation = () => {
         </LogoContainer>
         <LinkContainer>
           <Link to="/shop">Shop</Link>
-          {currentUser ? (
+          <Link to="/carts">Carts</Link>
+
+          {currentUserName ? (
             <div>
-              <span to="/" onClick={signOutHandler}>
-                Sign Out
-              </span>
-              <Link to="/user">{currentUser}</Link>
+              <span onClick={signOutHandler}>Sign Out</span>
+              <span>{currentUserName}</span>
             </div>
           ) : (
             <Link to="/auth">Sign In</Link>
           )}
-
-          <Link to="/carts">Carts</Link>
+          {currentUserProfile ? (
+            <div>
+              <Profile imageUrl={currentUserProfile} />
+            </div>
+          ) : (
+            <div>
+              <DefaultProfile />
+            </div>
+          )}
         </LinkContainer>
       </NavigationContainer>
       <Outlet />

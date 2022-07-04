@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const Profile = styled.div`
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-size: 100%;
+  background-position: center;
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+`;
+export const DefaultProfile = styled.div`
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-size: 100%;
+  background-position: center;
+  background-image: url("https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg");
+`;
+
 export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;

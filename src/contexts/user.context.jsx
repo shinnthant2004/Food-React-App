@@ -2,7 +2,8 @@ import { createContext, useEffect, useState } from "react";
 import {
   createUserDocument,
   onAuthStateChangedListener,
-  CurrentLoggedUser,
+  getUserDetail,
+  signOutUser,
 } from "../utils/firebase/firebase.utils";
 
 export const UserContext = createContext({
@@ -11,17 +12,33 @@ export const UserContext = createContext({
 });
 
 export const UserProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState("");
-  const value = { currentUser, setCurrentUser };
+  const [currentUserName, setCurrentUserName] = useState(null);
+  const [currentUserProfile, setCurrentUserProfile] = useState(null);
+
+  const value = {
+    currentUserName,
+    setCurrentUserName,
+    currentUserProfile,
+    setCurrentUserProfile,
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(async (user) => {
+      console.log(user);
       if (user) {
         createUserDocument(user);
-        const loggedUser = await CurrentLoggedUser(user.uid);
-        const { displayName } = loggedUser.data();
-        setCurrentUser(displayName);
+        const loggedUser = await getUserDetail(user.uid);
+        if (loggedUser) {
+          const { displayName, imageUrl } = loggedUser.data();
+          setCurrentUserName(displayName);
+          setCurrentUserProfile(imageUrl);
+        } else {
+          const { displayName, photoURL } = user;
+          setCurrentUserName(displayName);
+          setCurrentUserProfile(photoURL);
+        }
       } else {
-        setCurrentUser(user);
+        setCurrentUserName(user);
+        setCurrentUserProfile(null);
       }
     });
     return unsubscribe;

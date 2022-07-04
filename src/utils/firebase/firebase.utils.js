@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyADvYjsBrb_0eZjd0eUQarBqfKp9Rzysn4",
@@ -20,7 +21,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
+export const storage = getStorage(app);
 export const auth = getAuth();
 export const db = getFirestore();
 
@@ -34,13 +35,14 @@ export const createUserDocument = async (user, additional = {}) => {
   const userDocRef = doc(db, "users", user.uid);
   const userSnapShot = await getDoc(userDocRef);
   if (!userSnapShot.exists()) {
-    const { displayName, email } = user;
+    const { displayName, email, imageUrl } = user;
     const createdAt = new Date();
     try {
       await setDoc(userDocRef, {
         displayName,
         email,
         createdAt,
+        imageUrl,
         ...additional,
       });
     } catch (error) {
@@ -49,10 +51,12 @@ export const createUserDocument = async (user, additional = {}) => {
   }
 };
 
-export const CurrentLoggedUser = async (uid) => {
+export const getUserDetail = async (uid) => {
   const docRef = doc(db, "users", uid);
   const docSnapShot = await getDoc(docRef);
-  return docSnapShot;
+  if (docSnapShot.exists()) {
+    return docSnapShot;
+  }
 };
 
 export const SignUpWithGoogle = async () =>
