@@ -49,6 +49,12 @@ export const createUserDocument = async (user, additional = {}) => {
   }
 };
 
+export const CurrentLoggedUser = async (uid) => {
+  const docRef = doc(db, "users", uid);
+  const docSnapShot = await getDoc(docRef);
+  return docSnapShot;
+};
+
 export const SignUpWithGoogle = async () =>
   await signInWithPopup(auth, GoogleProvider);
 

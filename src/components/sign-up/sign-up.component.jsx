@@ -55,17 +55,10 @@ const SignUp = () => {
           value={email}
           onChange={onChangeHandler}
         />
-        <input type="file" name="profile" onChange={onChangeHandler} />
         <input
           type="password"
           name="password"
           value={password}
-          onChange={onChangeHandler}
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          value={confirmPassword}
           onChange={onChangeHandler}
         />
         <button type="submit">Submit</button>

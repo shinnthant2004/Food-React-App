@@ -28,7 +28,7 @@ const Navigation = () => {
               <span to="/" onClick={signOutHandler}>
                 Sign Out
               </span>
-              <Link to="/user">{currentUser["displayName"]}</Link>
+              <Link to="/user">{currentUser}</Link>
             </div>
           ) : (
             <Link to="/auth">Sign In</Link>
