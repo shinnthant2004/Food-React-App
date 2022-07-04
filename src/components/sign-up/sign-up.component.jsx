@@ -1,22 +1,21 @@
 import { useState } from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/user.context";
+import { SignUpContainer } from "./sign-up.styles";
 import {
   SignUpWithGoogle,
   SignUpWithEmailAndPassword,
   createUserDocument,
   storage,
 } from "../../utils/firebase/firebase.utils";
-import {
-  getDownloadURL,
-  ref,
-  uploadBytes,
-  uploadBytesResumable,
-} from "firebase/storage";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { TitleContainer, AuthChangeContainer } from "./sign-up.styles";
+import FormInput from "../form-input/form-input.component";
+import { Title } from "../directory/directory.styles";
 
 const form = {
   displayName: "",
-  profile: "",
   email: "",
   password: "",
   confirmPassword: "",
@@ -86,33 +85,44 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h2>Sign up</h2>
+    <SignUpContainer>
+      <TitleContainer>
+        <Title>Create New Account</Title>
+        <AuthChangeContainer>
+          <Link to="/">Sign In</Link>
+          <span>instead?</span>
+        </AuthChangeContainer>
+      </TitleContainer>
       <form onSubmit={onSubmitHandler}>
-        <input
+        <FormInput
+          label="Username"
           type="text"
           name="displayName"
           value={displayName}
           onChange={onChangeHandler}
         />
-        <input
+        <FormInput
+          label="email"
           type="email"
           name="email"
           value={email}
           onChange={onChangeHandler}
         />
-        <input
+        <FormInput
+          label="Profile"
           type="file"
           name="profile"
           onChange={(e) => setImageUpload(e.target.files[0])}
         />
-        <input
+        <FormInput
+          label="Password"
           type="password"
           name="password"
           value={password}
           onChange={onChangeHandler}
         />
-        <input
+        <FormInput
+          label="Confirm Password"
           type="password"
           name="confirmPassword"
           value={confirmPassword}
@@ -121,7 +131,7 @@ const SignUp = () => {
         <button type="submit">Submit</button>
       </form>
       <button onClick={SignUpGoogle}>Sign up with google</button>
-    </div>
+    </SignUpContainer>
   );
 };
 export default SignUp;
