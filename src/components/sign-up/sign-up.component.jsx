@@ -10,10 +10,11 @@ import {
   storage,
 } from "../../utils/firebase/firebase.utils";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { TitleContainer, AuthChangeContainer } from "./sign-up.styles";
+import { TitleContainer, AuthChangeContainer, Divider } from "./sign-up.styles";
 import FormInput from "../form-input/form-input.component";
 import { Title } from "../directory/directory.styles";
-
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import GoogleButton from "../google-button/google-button.component";
 const form = {
   displayName: "",
   email: "",
@@ -128,9 +129,12 @@ const SignUp = () => {
           value={confirmPassword}
           onChange={onChangeHandler}
         />
-        <button type="submit">Submit</button>
+        <Button buttonType={BUTTON_TYPE_CLASSES.base} type="submit">
+          Create Free Account
+        </Button>
+        <Divider />
       </form>
-      <button onClick={SignUpGoogle}>Sign up with google</button>
+      <GoogleButton onClick={SignUpGoogle}>Sign up with google</GoogleButton>
     </SignUpContainer>
   );
 };

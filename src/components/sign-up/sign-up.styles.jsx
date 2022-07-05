@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { Title } from "../directory/directory.styles";
+import { GoogleSignInButton } from "../google-button/google-button.styles";
 export const SignUpContainer = styled.div`
   width: 430px;
   background-color: #d6d3d1;
   padding: 30px 32px;
   border-radius: 6px;
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+  ${GoogleSignInButton} {
+    margin-top: 20px;
+  }
 `;
 export const TitleContainer = styled.div`
   display: flex;
@@ -35,4 +39,9 @@ export const AuthChangeContainer = styled.div`
     font-weight: 500;
     font-size: 14px;
   }
+`;
+export const Divider = styled.div`
+  width: 100px;
+  border: 1px solid black;
+  margin: 10px 0;
 `;
