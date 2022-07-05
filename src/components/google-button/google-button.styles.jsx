@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BaseButton } from "../button/button.styles";
 
 export const GoogleSignInButton = styled(BaseButton)`
-  margin: 0;
+  margin-top: 0 !important;
   background-color: #2563eb;
   &:hover {
     color: #2563eb;

@@ -9,14 +9,14 @@ import {
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
-  openSignIn: false,
+  openSignIn: true,
   setOpenSignIn: () => null,
 });
 
 export const UserProvider = ({ children }) => {
   const [currentUserName, setCurrentUserName] = useState(null);
   const [currentUserProfile, setCurrentUserProfile] = useState(null);
-  const [openSignIn, setOpenSignIn] = useState(false);
+  const [openSignIn, setOpenSignIn] = useState(true);
   const value = {
     currentUserName,
     setCurrentUserName,

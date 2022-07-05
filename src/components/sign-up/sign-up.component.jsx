@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/user.context";
 import { SignUpContainer } from "./sign-up.styles";
 import {
@@ -94,7 +93,7 @@ const SignUp = () => {
       <TitleContainer>
         <Title>Create New Account</Title>
         <AuthChangeContainer>
-          <span onClick={AuthHandler}>Sign In</span>
+          <p onClick={AuthHandler}>Sign In</p>
           <span>instead?</span>
         </AuthChangeContainer>
       </TitleContainer>
