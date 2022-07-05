@@ -40,8 +40,3 @@ export const AuthChangeContainer = styled.div`
     font-size: 14px;
   }
 `;
-export const Divider = styled.div`
-  width: 100px;
-  border: 1px solid black;
-  margin: 10px 0;
-`;
