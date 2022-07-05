@@ -9,17 +9,21 @@ import {
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
+  openSignIn: false,
+  setOpenSignIn: () => null,
 });
 
 export const UserProvider = ({ children }) => {
   const [currentUserName, setCurrentUserName] = useState(null);
   const [currentUserProfile, setCurrentUserProfile] = useState(null);
-
+  const [openSignIn, setOpenSignIn] = useState(false);
   const value = {
     currentUserName,
     setCurrentUserName,
     currentUserProfile,
     setCurrentUserProfile,
+    openSignIn,
+    setOpenSignIn,
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(async (user) => {

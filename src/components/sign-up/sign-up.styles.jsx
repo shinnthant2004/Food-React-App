@@ -27,7 +27,7 @@ export const AuthChangeContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  a {
+  p {
     text-decoration: none;
     color: #2563eb;
     font-weight: bold;

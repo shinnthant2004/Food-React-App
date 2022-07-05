@@ -27,7 +27,8 @@ const SignUp = () => {
   const [formField, setFormField] = useState(form);
   const { displayName, email, password, confirmPassword } = formField;
   const [imageUpload, setImageUpload] = useState(null);
-  const { setCurrentUserName, setCurrentUserProfile } = useContext(UserContext);
+  const { setCurrentUserName, setCurrentUserProfile, setOpenSignIn } =
+    useContext(UserContext);
   const resetFormField = () => {
     setFormField(form);
   };
@@ -85,13 +86,15 @@ const SignUp = () => {
     const { name, value } = e.target;
     setFormField({ ...formField, [name]: value });
   };
-
+  const AuthHandler = () => {
+    setOpenSignIn(true);
+  };
   return (
     <SignUpContainer>
       <TitleContainer>
         <Title>Create New Account</Title>
         <AuthChangeContainer>
-          <Link to="/">Sign In</Link>
+          <span onClick={AuthHandler}>Sign In</span>
           <span>instead?</span>
         </AuthChangeContainer>
       </TitleContainer>

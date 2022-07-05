@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { signInUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
-
+import { useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
 const form = {
   email: "",
   password: "",
@@ -9,7 +10,7 @@ const form = {
 const SignIn = () => {
   const [formField, setFormField] = useState(form);
   const { email, password } = formField;
-
+  const { setOpenSignIn } = useContext(UserContext);
   const resetFormField = () => {
     setFormField(form);
   };
@@ -24,9 +25,13 @@ const SignIn = () => {
     const { name, value } = e.target;
     setFormField({ ...formField, [name]: value });
   };
+  const AuthHandler = () => {
+    setOpenSignIn(false);
+  };
   return (
     <div>
       <h2>Sign in</h2>
+      <p onClick={AuthHandler}>SignUp?</p>
       <form onSubmit={onSubmitHandler}>
         <input
           type="email"
