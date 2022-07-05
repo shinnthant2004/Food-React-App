@@ -1,9 +1,9 @@
 import { Group, FormInputLabel, Input } from "./form-input.styles";
-const FormInput = ({ label, children, ...otherProps }) => {
+const FormInput = ({ label, ...otherProps }) => {
   return (
     <Group>
       <Input {...otherProps} />
-      <FormInputLabel>{label}</FormInputLabel>
+      {label && <FormInputLabel>{label}</FormInputLabel>}
     </Group>
   );
 };

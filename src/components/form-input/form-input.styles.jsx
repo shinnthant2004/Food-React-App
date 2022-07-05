@@ -1,17 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+const shrinkLabelStyles = css`
+  top: -21px;
+  left: 8px;
+  transform: scale(1.2);
+  font-size: 13px;
+`;
 export const FormInputLabel = styled.label`
   display: block;
   font-weight: 500;
   font-size: 15px;
   position: absolute;
   top: -18px;
-  input[type="file"] {
-    left: 0;
-    top: 0;
-    opacity: 0;
-    position: absolute;
-    font-size: 90px;
-  }
+  transition: 300ms ease all;
 `;
 export const Input = styled.input`
   outline: none;
@@ -26,10 +26,14 @@ export const Input = styled.input`
     border: 2px solid #86198f;
   }
   &:focus ~ ${FormInputLabel} {
-    transform: scale(0.9);
+    ${shrinkLabelStyles}
   }
 `;
 export const Group = styled.div`
   margin: 40px 0;
   position: relative;
+  input[type="file"] {
+    background: white;
+    padding: 10px 15px;
+  }
 `;
