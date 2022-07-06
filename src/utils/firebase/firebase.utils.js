@@ -8,7 +8,14 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+} from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -57,6 +64,20 @@ export const getUserDetail = async (uid) => {
   if (docSnapShot.exists()) {
     return docSnapShot;
   }
+};
+
+export const createCollectionAndDocuments = async (
+  collectionKey,
+  addDocumentsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+  addDocumentsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object["name"]);
+    batch.set(docRef, object);
+  });
+  await batch.commit();
+  console.log("done");
 };
 
 export const SignUpWithGoogle = async () =>
