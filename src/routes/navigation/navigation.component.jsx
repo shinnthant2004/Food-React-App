@@ -10,6 +10,7 @@ import {
   LogoContainer,
   Profile,
   DefaultProfile,
+  Username,
 } from "./navigation.styles";
 const Navigation = () => {
   const { currentUserName, currentUserProfile } = useContext(UserContext);
@@ -30,7 +31,7 @@ const Navigation = () => {
           {currentUserName ? (
             <div>
               <span onClick={signOutHandler}>Sign Out</span>
-              <span>{currentUserName}</span>
+              <Username>{currentUserName}</Username>
             </div>
           ) : (
             <Link to="/auth">Sign In</Link>

@@ -37,6 +37,7 @@ export const UserProvider = ({ children }) => {
           setCurrentUserProfile(imageUrl);
         } else {
           const { displayName, photoURL } = user;
+          console.log(photoURL);
           setCurrentUserName(displayName);
           setCurrentUserProfile(photoURL);
         }

@@ -5,6 +5,7 @@ export const Profile = styled.div`
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  border: 2px solid #fff;
   background-size: 100%;
   background-position: center;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
@@ -45,4 +46,8 @@ export const LinkContainer = styled.div`
     color: #fff;
     font-weight: 600;
   }
+`;
+export const Username = styled.span`
+  width: 100px;
+  margin: 0 20px;
 `;

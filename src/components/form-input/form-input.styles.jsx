@@ -1,8 +1,5 @@
 import styled, { css } from "styled-components";
 const shrinkLabelStyles = css`
-  top: -21px;
-  left: 8px;
-  transform: scale(1.2);
   font-size: 13px;
 `;
 export const FormInputLabel = styled.label`

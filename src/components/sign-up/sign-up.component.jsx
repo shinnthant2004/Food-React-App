@@ -9,7 +9,7 @@ import {
   storage,
 } from "../../utils/firebase/firebase.utils";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { TitleContainer, AuthChangeContainer } from "./sign-up.styles";
+import { TitleContainer, AuthChangeContainer, Error } from "./sign-up.styles";
 import FormInput from "../form-input/form-input.component";
 import { Title } from "../directory/directory.styles";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
@@ -26,6 +26,7 @@ const SignUp = () => {
   const [formField, setFormField] = useState(form);
   const { displayName, email, password, confirmPassword } = formField;
   const [imageUpload, setImageUpload] = useState(null);
+  const [error, setError] = useState(null);
   const { setCurrentUserName, setCurrentUserProfile, setOpenSignIn } =
     useContext(UserContext);
   const resetFormField = () => {
@@ -67,18 +68,18 @@ const SignUp = () => {
             setCurrentUserName(displayName);
             setCurrentUserProfile(downloadUrl);
             setImageUpload(null);
+            setError(null);
           });
         }
       );
       resetFormField();
     } catch (error) {
-      console.log(error);
+      setError(error.message);
     }
   };
 
   const SignUpGoogle = async () => {
-    const user = await SignUpWithGoogle();
-    console.log(user);
+    await SignUpWithGoogle();
   };
 
   const onChangeHandler = (e) => {
@@ -98,6 +99,7 @@ const SignUp = () => {
         </AuthChangeContainer>
       </TitleContainer>
       <form onSubmit={onSubmitHandler}>
+        {error && <Error>{error}</Error>}
         <FormInput
           label="Username"
           type="text"

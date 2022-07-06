@@ -40,3 +40,9 @@ export const AuthChangeContainer = styled.div`
     font-size: 14px;
   }
 `;
+export const Error = styled.p`
+  color: red;
+  font-weight: 500;
+  font-size: 13px;
+  margin: 13px 0;
+`;
