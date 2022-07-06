@@ -22,9 +22,9 @@ const rated = [
   },
   {
     id: 4,
-    name: "Bánh Mì VN",
+    name: "hips Ahoy! Original Chocolate Chip Cookies",
     image:
-      "https://images.foody.vn/res/g104/1030781/prof/s640x400/foody-upload-api-foody-mobile-foody-upload-api-foo-200619091742.jpg",
+      "https://borobazar.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fproducts%2Fp-26.png&w=256&q=100",
     price: 5,
   },
   {

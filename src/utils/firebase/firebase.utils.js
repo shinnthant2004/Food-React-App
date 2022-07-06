@@ -15,6 +15,8 @@ import {
   setDoc,
   collection,
   writeBatch,
+  query,
+  getDocs,
 } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
@@ -78,6 +80,16 @@ export const createCollectionAndDocuments = async (
   });
   await batch.commit();
   console.log("done");
+};
+
+export const getCollectionAndDocuments = async (collectionKey) => {
+  const collectionRef = collection(db, collectionKey);
+  const q = query(collectionRef);
+  const querySnapShot = await getDocs(q);
+  const CategoryMap = querySnapShot.docs.map((doc) => {
+    return doc.data();
+  });
+  return CategoryMap;
 };
 
 export const SignUpWithGoogle = async () =>

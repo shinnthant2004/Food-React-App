@@ -1,8 +1,11 @@
+import { Routes, Route } from "react-router-dom";
+import MostRatedProducts from "../most-rated-products/most-rated-products.component";
+
 const Shop = () => {
   return (
-    <div>
-      <h1>shop</h1>
-    </div>
+    <Routes>
+      <Route index element={<MostRatedProducts />} />
+    </Routes>
   );
 };
 export default Shop;
