@@ -37,7 +37,7 @@ const Directory = () => {
     <Fragment>
       <Title>Expore our collections</Title>
       <DirectoryContainer>
-        <TopRatedProducts>
+        <TopRatedProducts to="shop">
           <span>Most Popolar items</span>
           <button>Top Rated</button>
         </TopRatedProducts>

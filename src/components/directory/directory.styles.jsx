@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const DirectoryContainer = styled.div`
@@ -7,7 +8,7 @@ export const DirectoryContainer = styled.div`
   width: 1300px;
 `;
 
-export const TopRatedProducts = styled.div`
+export const TopRatedProducts = styled(Link)`
   width: 250px;
   height: 518px;
   position: relative;

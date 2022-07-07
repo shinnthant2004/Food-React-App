@@ -1,17 +1,17 @@
 import { createContext, useEffect, useState } from "react";
-import {
-  createCollectionAndDocuments,
-  getCollectionAndDocuments,
-} from "../utils/firebase/firebase.utils";
-import Most_rated_Products from "../most_rated";
+import { getCollectionAndDocuments } from "../utils/firebase/firebase.utils";
 
 export const CategoryContext = createContext({
   mostRatedProducts: [],
+  categoryProducts: [],
+  setCategoryProducts: () => null,
   setMostRatedProducts: () => null,
 });
 
 export const CategoryProvider = ({ children }) => {
   const [mostRatedProducts, setMostRatedProducts] = useState([]);
+  const [categoryProducts, setCategoryProducts] = useState([]);
+
   useEffect(() => {
     const getData = async () => {
       const products = await getCollectionAndDocuments("rated_products");
@@ -20,7 +20,21 @@ export const CategoryProvider = ({ children }) => {
     getData();
   }, []);
 
-  const value = { mostRatedProducts, setMostRatedProducts };
+  useEffect(() => {
+    const getData = async () => {
+      const categoryProducts = await getCollectionAndDocuments("products");
+      setCategoryProducts(categoryProducts);
+      console.log(categoryProducts);
+    };
+    getData();
+  }, []);
+
+  const value = {
+    mostRatedProducts,
+    setMostRatedProducts,
+    categoryProducts,
+    setCategoryProducts,
+  };
 
   return (
     <CategoryContext.Provider value={value}>
