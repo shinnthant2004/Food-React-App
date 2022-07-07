@@ -1,5 +1,8 @@
 import { createContext, useEffect, useState } from "react";
-import { getCollectionAndDocuments } from "../utils/firebase/firebase.utils";
+import {
+  getCollectionAndDocuments,
+  getCollectionAndDocumentsRated,
+} from "../utils/firebase/firebase.utils";
 
 export const CategoryContext = createContext({
   mostRatedProducts: [],
@@ -14,19 +17,18 @@ export const CategoryProvider = ({ children }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const products = await getCollectionAndDocuments("rated_products");
+      const products = await getCollectionAndDocumentsRated("rated_products");
       setMostRatedProducts(products);
     };
     getData();
   }, []);
 
   useEffect(() => {
-    const getData = async () => {
+    const getData2 = async () => {
       const categoryProducts = await getCollectionAndDocuments("products");
       setCategoryProducts(categoryProducts);
-      console.log(categoryProducts);
     };
-    getData();
+    getData2();
   }, []);
 
   const value = {

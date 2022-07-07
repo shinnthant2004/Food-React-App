@@ -1,10 +1,10 @@
-import { ProductContainer } from "./most-rated-product.styles";
+import { ProductContainer } from "./product-card.styles";
 import { AddCartButton } from "../add-to-cart-button/add-to-cart-button.styles";
-const MostRatedProduct = ({ product }) => {
-  const { name, image, price } = product;
+const ProductCard = ({ product }) => {
+  const { name, img, price } = product;
   return (
     <ProductContainer>
-      <img src={image} />
+      <img src={img} />
       <p>
         ${price} - {Number(price) + 2}
       </p>
@@ -13,4 +13,4 @@ const MostRatedProduct = ({ product }) => {
     </ProductContainer>
   );
 };
-export default MostRatedProduct;
+export default ProductCard;

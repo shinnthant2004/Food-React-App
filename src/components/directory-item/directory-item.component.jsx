@@ -4,9 +4,9 @@ import {
   DescriptionContainer,
 } from "./directory-item.styles";
 const DirectoryItem = ({ category }) => {
-  const { title, image, description } = category;
+  const { title, image, description, route } = category;
   return (
-    <DirectoryItemContainer>
+    <DirectoryItemContainer to={route}>
       <Image imageUrl={image} />
       <DescriptionContainer>
         <p>{title}</p>

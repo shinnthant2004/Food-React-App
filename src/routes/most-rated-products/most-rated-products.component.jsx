@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import MostRatedProduct from "../../components/most-rated-product/most-rated-product.component";
+import ProductCard from "../../components/product-card/product-card.component";
 import SearchInput from "../../components/search-input/search-input.component";
 import { CategoryContext } from "../../contexts/category.context";
 import {
@@ -34,7 +34,7 @@ const MostRatedProducts = () => {
       <ProductsContainer>
         {filterProducts &&
           filterProducts.map((product) => (
-            <MostRatedProduct key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
       </ProductsContainer>
     </LayoutProducts>

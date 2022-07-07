@@ -82,13 +82,24 @@ export const createCollectionAndDocuments = async (
   console.log("done");
 };
 
-export const getCollectionAndDocuments = async (collectionKey) => {
+export const getCollectionAndDocumentsRated = async (collectionKey) => {
   const collectionRef = collection(db, collectionKey);
   const q = query(collectionRef);
   const querySnapShot = await getDocs(q);
   const CategoryMap = querySnapShot.docs.map((doc) => {
     return doc.data();
   });
+  return CategoryMap;
+};
+export const getCollectionAndDocuments = async (collectionKey) => {
+  const collectionRef = collection(db, collectionKey);
+  const q = query(collectionRef);
+  const querySnapShot = await getDocs(q);
+  const CategoryMap = querySnapShot.docs.reduce((acc, docSnapShot) => {
+    const { name, items } = docSnapShot.data();
+    acc[name.toLowerCase()] = items;
+    return acc;
+  }, []);
   return CategoryMap;
 };
 

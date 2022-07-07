@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const DirectoryItemContainer = styled.div`
+export const DirectoryItemContainer = styled(Link)`
   width: 425px;
   height: 240px;
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
