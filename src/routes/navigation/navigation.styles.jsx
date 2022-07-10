@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import CartIcon from "../../components/cart-icon/cart-icon.component";
 
 export const Profile = styled.div`
   width: 45px;
@@ -45,6 +46,9 @@ export const LinkContainer = styled.div`
     margin: 0 20px;
     color: #fff;
     font-weight: 600;
+  }
+  ${CartIcon} {
+    margin-left: 20px;
   }
 `;
 export const Username = styled.span`

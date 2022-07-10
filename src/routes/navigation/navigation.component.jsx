@@ -12,6 +12,7 @@ import {
   DefaultProfile,
   Username,
 } from "./navigation.styles";
+import CartIcon from "../../components/cart-icon/cart-icon.component";
 const Navigation = () => {
   const { currentUserName, currentUserProfile } = useContext(UserContext);
   const signOutHandler = async () => {
@@ -26,7 +27,6 @@ const Navigation = () => {
         </LogoContainer>
         <LinkContainer>
           <Link to="/shop">Shop</Link>
-          <Link to="/carts">Carts</Link>
 
           {currentUserName ? (
             <div>
@@ -45,6 +45,7 @@ const Navigation = () => {
               <DefaultProfile />
             </div>
           )}
+          <CartIcon />
         </LinkContainer>
       </NavigationContainer>
       <Outlet />
