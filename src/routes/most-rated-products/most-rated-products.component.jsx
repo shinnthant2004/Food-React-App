@@ -36,6 +36,11 @@ const MostRatedProducts = () => {
           filterProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        {filterProducts && filterProducts.length < 1 ? (
+          <span>No items found !</span>
+        ) : (
+          ""
+        )}
       </ProductsContainer>
     </LayoutProducts>
   );

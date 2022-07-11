@@ -7,24 +7,38 @@ import {
   ProductsContainer,
   LayoutProducts,
 } from "../most-rated-products/most-rated-products.styles";
+import SearchInput from "../../components/search-input/search-input.component";
+
 const Category = () => {
   const { category } = useParams();
   const { categoryProducts } = useContext(CategoryContext);
-  const [filteredProducts, setFilteredProducts] = useState(
+  const [propProducts, setPropProducts] = useState(categoryProducts[category]);
+  const [searchProducts, setSearchProducts] = useState(
     categoryProducts[category]
   );
+
   useEffect(() => {
-    setFilteredProducts(categoryProducts[category]);
-    console.log(filteredProducts);
+    setPropProducts(categoryProducts[category]);
+    setSearchProducts(categoryProducts[category]);
   }, [categoryProducts, category]);
+
+  const searchHandler = (e) => {
+    const { value } = e.target;
+    const filterSearchProducts = propProducts.filter((product) => {
+      return product.name.toLowerCase().includes(value.toLowerCase());
+    });
+    setSearchProducts(filterSearchProducts);
+  };
   return (
     <LayoutProducts>
       <h2>{category}</h2>
+      <SearchInput onChange={searchHandler} />
       <ProductsContainer>
-        {filteredProducts &&
-          filteredProducts.map((product) => (
+        {searchProducts &&
+          searchProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        {searchProducts.length < 1 && <span>No items found !</span>}
       </ProductsContainer>
     </LayoutProducts>
   );

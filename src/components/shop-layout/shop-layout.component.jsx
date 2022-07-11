@@ -8,7 +8,9 @@ const ShopLayout = () => {
         <Sidebar>
           <CategoryList to="/shop">Most Popular</CategoryList>
           {Categories.map((category) => (
-            <CategoryList to={category.route}>{category.title}</CategoryList>
+            <CategoryList key={category.title} to={category.route}>
+              {category.title}
+            </CategoryList>
           ))}
         </Sidebar>
       </div>
