@@ -29,7 +29,7 @@ const MostRatedProducts = () => {
 
   return (
     <LayoutProducts>
-      <h2>Most rated products</h2>
+      <h2>MOST RATED PRODUCTS</h2>
       <SearchInput onChange={onSearchChange} />
       <ProductsContainer>
         {filterProducts &&

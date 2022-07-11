@@ -1,9 +1,9 @@
 import styled from "styled-components";
 export const AddCartButton = styled.button`
-  top: 113px;
-  right: 9px;
-  width: 38px;
-  height: 38px;
+  top: 118px;
+  right: 11px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   line-height: 50px;
   border-radius: 50%;

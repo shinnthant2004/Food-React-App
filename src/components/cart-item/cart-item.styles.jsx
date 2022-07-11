@@ -3,7 +3,7 @@ export const CartItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 7px;
   border-radius: 5px;
   background: #fb923c;
   img {
@@ -18,6 +18,7 @@ export const SaleText = styled.div`
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 1px;
+    margin-bottom: 5px;
   }
   & > span:last-child {
     display: block;

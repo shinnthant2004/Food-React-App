@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.div`
-  width: 170px;
+  width: 175px;
   height: 235px;
   position: relative;
   background: white;

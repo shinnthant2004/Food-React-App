@@ -32,7 +32,7 @@ export const ItemsContainer = styled.div`
   background: #e4e4e7;
   border-radius: 7px;
   margin: 14px 0;
-  padding: 5px 10px;
+  padding: 5px 14px;
 `;
 
 export const Ender = styled.div`

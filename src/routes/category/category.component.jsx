@@ -31,7 +31,7 @@ const Category = () => {
   };
   return (
     <LayoutProducts>
-      <h2>{category}</h2>
+      <h2>{category.toUpperCase()}</h2>
       <SearchInput onChange={searchHandler} />
       <ProductsContainer>
         {searchProducts &&
