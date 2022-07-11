@@ -4,13 +4,20 @@ import {
   Header,
   ItemsContainer,
 } from "./drop-down.styles";
-
+import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
+import CartItem from "../cart-item/cart-item.component";
 const DropDown = () => {
+  const { cartOpen, setCartOpen } = useContext(CartContext);
+  const toggleDropDownHandler = () => {
+    setCartOpen(!cartOpen);
+  };
   return (
     <DropDownContainer>
       <Header>
         <p>Your Carts</p>
         <svg
+          onClick={toggleDropDownHandler}
           xmlns="http://www.w3.org/2000/svg"
           style={{ width: `${20}px` }}
           fill="none"
@@ -25,7 +32,12 @@ const DropDown = () => {
           />
         </svg>
       </Header>
-      <ItemsContainer />
+      <ItemsContainer>
+        <CartItem />
+        <CartItem />
+        <CartItem />
+        <CartItem />
+      </ItemsContainer>
       <Ender>
         <span>Total : $ 500</span>
         <svg

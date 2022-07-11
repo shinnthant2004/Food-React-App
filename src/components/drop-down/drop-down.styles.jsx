@@ -30,8 +30,9 @@ export const ItemsContainer = styled.div`
   height: 213px;
   overflow: scroll;
   background: #e4e4e7;
-  border-radius: 10px;
+  border-radius: 7px;
   margin: 14px 0;
+  padding: 5px 10px;
 `;
 
 export const Ender = styled.div`

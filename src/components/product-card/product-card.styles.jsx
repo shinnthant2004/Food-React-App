@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   width: 170px;
-  height: 230px;
+  height: 235px;
   position: relative;
   background: white;
   padding: 10px 8px;

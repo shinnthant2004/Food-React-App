@@ -12,9 +12,9 @@ export const CartContainer = styled.div`
 
 export const ItemCount = styled.span`
   position: absolute;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
-  bottom: 5px;
+  bottom: 7px;
 `;
 
 export const IconCart = styled(Icon)`
