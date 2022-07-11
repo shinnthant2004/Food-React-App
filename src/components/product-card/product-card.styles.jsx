@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   width: 170px;
-  height: 225px;
+  height: 230px;
   position: relative;
   background: white;
   padding: 10px 8px;
@@ -12,6 +12,9 @@ export const ProductContainer = styled.div`
     img {
       transform: scale(1.08);
     }
+
+    box-shadow: 1px 2px 3px 1px rgb(60 64 67 / 30%),
+      0 1px 3px 1px rgb(60 64 67 / 15%);
   }
   img {
     width: 100%;

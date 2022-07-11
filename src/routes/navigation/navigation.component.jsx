@@ -13,6 +13,7 @@ import {
   Username,
 } from "./navigation.styles";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
+import DropDown from "../../components/drop-down/drop-down.component";
 const Navigation = () => {
   const { currentUserName, currentUserProfile } = useContext(UserContext);
   const signOutHandler = async () => {
@@ -47,6 +48,7 @@ const Navigation = () => {
           )}
           <CartIcon />
         </LinkContainer>
+        <DropDown />
       </NavigationContainer>
       <Outlet />
     </Fragment>

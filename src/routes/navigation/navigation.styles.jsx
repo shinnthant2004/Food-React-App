@@ -47,7 +47,7 @@ export const LinkContainer = styled.div`
     color: #fff;
     font-weight: 600;
   }
-  ${CartIcon} {
+  & > div:last-child {
     margin-left: 20px;
   }
 `;
