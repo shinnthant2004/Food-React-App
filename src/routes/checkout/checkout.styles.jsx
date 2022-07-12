@@ -7,6 +7,13 @@ export const CheckoutContainer = styled.section`
   border-radius: 29px;
   width: 957px;
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+  p {
+    font-size: 18px;
+    width: 167px;
+    font-weight: 500;
+    color: #000;
+    margin: auto;
+  }
 `;
 export const Title = styled.h3`
   width: 200px;

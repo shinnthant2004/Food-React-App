@@ -33,6 +33,11 @@ export const ItemsContainer = styled.div`
   border-radius: 7px;
   margin: 14px 0;
   padding: 5px 14px;
+  p {
+    color: #000;
+    width: 100px;
+    margin: 84px auto;
+  }
 `;
 
 export const Ender = styled.div`

@@ -38,6 +38,7 @@ const SignUp = () => {
 
     if (password !== confirmPassword) {
       alert("passwords do not match");
+      return;
     }
 
     if (imageUpload === null) return;

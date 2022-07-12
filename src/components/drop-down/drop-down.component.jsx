@@ -35,8 +35,11 @@ const DropDown = () => {
         </svg>
       </Header>
       <ItemsContainer>
-        {cartItems &&
-          cartItems.map((item) => <CartItem key={item.id} cart={item} />)}
+        {cartItems.length > 0 ? (
+          cartItems.map((item) => <CartItem key={item.id} cart={item} />)
+        ) : (
+          <p>No items</p>
+        )}
       </ItemsContainer>
       <Ender>
         <span>Total : $ {costTotal}</span>

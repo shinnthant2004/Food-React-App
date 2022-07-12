@@ -7,8 +7,11 @@ const Checkout = () => {
   return (
     <CheckoutContainer>
       <Title>Carts</Title>
-      {cartItems &&
-        cartItems.map((cart) => <CheckoutItem key={cart.id} cart={cart} />)}
+      {cartItems.length > 0 ? (
+        cartItems.map((cart) => <CheckoutItem key={cart.id} cart={cart} />)
+      ) : (
+        <p>No carts chosen</p>
+      )}
       <Total>Total : $ {costTotal}</Total>
     </CheckoutContainer>
   );

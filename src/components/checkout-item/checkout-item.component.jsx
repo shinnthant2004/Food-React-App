@@ -55,7 +55,7 @@ const CheckoutItem = ({ cart }) => {
           </svg>
         </ActionButton>
       </ActionContainer>
-      <Price>${price}</Price>
+      <Price>${price * quantity}</Price>
       <Trash onClick={clearItem}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
