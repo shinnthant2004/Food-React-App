@@ -38,7 +38,9 @@ const Category = () => {
           searchProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        {searchProducts.length < 1 && <span>No items found !</span>}
+        {searchProducts && searchProducts.length < 1 && (
+          <span>No items found !</span>
+        )}
       </ProductsContainer>
     </LayoutProducts>
   );

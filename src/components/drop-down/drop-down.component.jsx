@@ -4,12 +4,18 @@ import {
   Header,
   ItemsContainer,
 } from "./drop-down.styles";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
 import CartItem from "../cart-item/cart-item.component";
 const DropDown = () => {
   const { cartOpen, setCartOpen, cartItems } = useContext(CartContext);
+  const navigate = useNavigate();
   const toggleDropDownHandler = () => {
+    setCartOpen(!cartOpen);
+  };
+  const navigateHandler = () => {
+    navigate("/checkout");
     setCartOpen(!cartOpen);
   };
   return (
@@ -34,6 +40,7 @@ const DropDown = () => {
       <Ender>
         <span>Total : $ 500</span>
         <svg
+          onClick={navigateHandler}
           xmlns="http://www.w3.org/2000/svg"
           style={{ width: `${26}px` }}
           fill="none"
