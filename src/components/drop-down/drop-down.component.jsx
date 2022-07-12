@@ -9,7 +9,8 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
 import CartItem from "../cart-item/cart-item.component";
 const DropDown = () => {
-  const { cartOpen, setCartOpen, cartItems } = useContext(CartContext);
+  const { cartOpen, setCartOpen, cartItems, costTotal } =
+    useContext(CartContext);
   const navigate = useNavigate();
   const toggleDropDownHandler = () => {
     setCartOpen(!cartOpen);
@@ -38,7 +39,7 @@ const DropDown = () => {
           cartItems.map((item) => <CartItem key={item.id} cart={item} />)}
       </ItemsContainer>
       <Ender>
-        <span>Total : $ 500</span>
+        <span>Total : $ {costTotal}</span>
         <svg
           onClick={navigateHandler}
           xmlns="http://www.w3.org/2000/svg"

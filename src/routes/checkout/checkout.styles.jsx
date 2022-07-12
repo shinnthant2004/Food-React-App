@@ -19,9 +19,9 @@ export const Title = styled.h3`
 `;
 export const Total = styled.div`
   height: 41px;
-  margin: 0px 752px;
+  margin: 0px 719px;
   font-size: 17px;
-  width: 125px;
+  width: 159px;
   padding: 9px;
   background: #d4d4d8;
   text-align: center;

@@ -7,8 +7,17 @@ import {
   ActionButton,
   Trash,
 } from "./checkout-item.styles";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
 const CheckoutItem = ({ cart }) => {
+  const { addItemToCart, removeItemFromCart } = useContext(CartContext);
   const { img, name, price, quantity } = cart;
+  const addHandler = () => {
+    addItemToCart(cart);
+  };
+  const removeHandler = () => {
+    removeItemFromCart(cart);
+  };
   return (
     <CheckoutItemContainer>
       <Image imageUrl={img} />
@@ -18,7 +27,7 @@ const CheckoutItem = ({ cart }) => {
         <p>In stock</p>
       </Description>
       <ActionContainer>
-        <ActionButton>
+        <ActionButton onClick={removeHandler}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             style={{ width: `${24}px` }}
@@ -30,7 +39,7 @@ const CheckoutItem = ({ cart }) => {
           </svg>
         </ActionButton>
         <span>{quantity}</span>
-        <ActionButton>
+        <ActionButton onClick={addHandler}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             style={{ width: `${24}px` }}
