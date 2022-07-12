@@ -61,6 +61,10 @@ export const CartProvider = ({ children }) => {
   const removeItemFromCart = (productToRemove) => {
     setCartItems(removeHelperFunction(productToRemove, cartItems));
   };
+  const removeCart = (productToClear) => {
+    const carts = cartItems.filter((cart) => cart.id !== productToClear.id);
+    setCartItems(carts);
+  };
 
   const value = {
     cartOpen,
@@ -70,6 +74,7 @@ export const CartProvider = ({ children }) => {
     cartCount,
     costTotal,
     removeItemFromCart,
+    removeCart,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

@@ -10,13 +10,17 @@ import {
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
 const CheckoutItem = ({ cart }) => {
-  const { addItemToCart, removeItemFromCart } = useContext(CartContext);
+  const { addItemToCart, removeItemFromCart, removeCart } =
+    useContext(CartContext);
   const { img, name, price, quantity } = cart;
   const addHandler = () => {
     addItemToCart(cart);
   };
   const removeHandler = () => {
     removeItemFromCart(cart);
+  };
+  const clearItem = () => {
+    removeCart(cart);
   };
   return (
     <CheckoutItemContainer>
@@ -52,7 +56,7 @@ const CheckoutItem = ({ cart }) => {
         </ActionButton>
       </ActionContainer>
       <Price>${price}</Price>
-      <Trash>
+      <Trash onClick={clearItem}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           style={{ width: `${24}px` }}
