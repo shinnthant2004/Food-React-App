@@ -13,7 +13,7 @@ export const CheckoutItemContainer = styled.div`
 `;
 export const Description = styled.div`
   padding: 0 20px;
-  width: 305px;
+  width: 355px;
   span {
     font-size: 15px;
     font-weight: 500;
@@ -28,6 +28,7 @@ export const Description = styled.div`
     font-weight: 500;
     color: green;
     text-transform: uppercase;
+    margin-bottom: 5px;
   }
 `;
 

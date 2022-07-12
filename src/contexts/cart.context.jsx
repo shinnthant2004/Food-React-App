@@ -1,10 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext({
   cartOpen: false,
   setCartOpen: () => null,
   cartItems: [],
   setCartItems: () => null,
+  cartCount: 0,
+  setCartCount: () => null,
 });
 
 const addHelperFunction = (productToAdd, cartItems) => {
@@ -22,11 +24,16 @@ const addHelperFunction = (productToAdd, cartItems) => {
 export const CartProvider = ({ children }) => {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
 
+  useEffect(() => {
+    const total = cartItems.reduce((acc, cart) => acc + cart.quantity, 0);
+    setCartCount(total);
+  }, [cartItems]);
   const addItemToCart = (productToAdd) => {
     setCartItems(addHelperFunction(productToAdd, cartItems));
   };
 
-  const value = { cartOpen, setCartOpen, cartItems, addItemToCart };
+  const value = { cartOpen, setCartOpen, cartItems, addItemToCart, cartCount };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
